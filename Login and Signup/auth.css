@@ -1,0 +1,46 @@
+:root{--navy:#153243;--or:#f18f01;--ink:#171818;--bg:#fefeff;--link:#337094;--h:'Montserrat Alternates',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;display:grid;grid-template-columns:50.7fr 49.3fr;font:500 16px/1.5 Lato,system-ui,sans-serif;color:var(--navy);background:#fff}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+
+.side{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(32px,6vw,101px);color:var(--bg);overflow:hidden;
+background:radial-gradient(ellipse 80% 55% at 45% 75%,rgba(85,120,140,.65),transparent 70%),linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px) 0 0/150px 150px,linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px) 0 0/150px 150px,var(--navy)}
+.side .logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;font:700 32px/1 var(--h);color:#fff;text-decoration:none}
+.side h2{max-width:483px;font:700 clamp(32px,3.33vw,48px)/1.25 var(--h)}
+.side p{max-width:529px;margin-top:8px;font:600 clamp(16px,1.4vw,20px)/2.3 Lato,sans-serif}
+.side small{margin-top:80px;font-size:16px;opacity:.8}
+
+.panel{display:grid;align-content:center;padding:48px clamp(20px,5vw,72px)}
+.card{width:min(505px,100%);display:grid;gap:60px}
+.back{display:inline-flex;align-items:center;gap:12px;margin-bottom:8px;color:var(--navy);font-weight:600;text-decoration:none;opacity:.6}
+.back:hover{opacity:1}
+h1{font:600 clamp(30px,2.8vw,40px)/46px var(--h)}
+.lead{margin-top:8px;font-weight:600;opacity:.6}
+
+form{display:grid;gap:32px}
+.fields{display:grid;gap:24px}
+label{display:grid;gap:8px;font-weight:600;line-height:1.2}
+input:not([type=checkbox]){width:100%;height:43px;padding:0 16px;background:#efefef;color:var(--navy);border:0;border-radius:8px;font:500 14px Lato,sans-serif}
+input[aria-invalid=true]{box-shadow:0 0 0 2px #c0392b}
+::placeholder{color:#000;opacity:.3}
+.forgot{justify-self:end;margin-top:-8px;font-size:14px;font-weight:600;color:var(--link);text-decoration:none;opacity:.8}
+.agree{display:flex;align-items:center;gap:10px;min-height:44px;font:400 14px Lato,sans-serif;color:#526574}
+.agree input{flex:none;width:20px;height:20px;accent-color:var(--navy)}
+.agree a{color:var(--navy);font-weight:700}
+.msg{min-height:1.5em;font-size:14px;color:#c0392b}
+.msg.ok{color:#1f7a4d}
+.actions{display:grid;gap:24px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:43px;padding:12px 24px;border-radius:8px;box-shadow:0 4px 4px rgba(0,0,0,.1);font:700 16px/1.2 Lato,sans-serif;color:var(--ink);background:var(--or);border:0;cursor:pointer;transition:filter .2s}
+.btn:hover{filter:brightness(1.08)}
+.btn--w{background:var(--bg);border:1px solid rgba(21,50,67,.8)}
+.alt{font-size:14px;font-weight:400}
+.alt a{color:var(--link);font-weight:700;text-decoration:none}
+.or{display:flex;align-items:center;gap:16px;color:#b3afaf;font-size:14px;font-weight:500}
+.or::before,.or::after{content:"";flex:1;height:1px;background:#b3afaf}
+
+@media (max-width:900px){
+  body{grid-template-columns:1fr}
+  .side{min-height:0;padding:40px 24px}
+  .side small{display:none}
+  .card{gap:40px}
+}
