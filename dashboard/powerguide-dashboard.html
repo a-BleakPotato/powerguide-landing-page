@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PowerGuide – Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat+Alternates:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { navy:'#153243', slate:'#284b63', snow:'#fefeff', brand:'#f18f01', line:'#ced8df', ink:'#171818', muted:'#526574', warnbg:'#fff3da', warn:'#805000' },
+  fontFamily: { display:["'Montserrat Alternates'",'system-ui','sans-serif'], body:['Lato','system-ui','sans-serif'] }
+}}};
+</script>
+<style type="text/tailwindcss">
+@layer base { :root{--sb:291px;--main-left:307px} .collapsed{--sb:108px;--main-left:108px} :focus-visible{outline:2px solid #f18f01;outline-offset:2px} }
+@layer components {
+  .nav-item{@apply relative block h-[66px] w-[270px] rounded-lg font-display text-base font-bold text-snow no-underline opacity-60 transition-all duration-300 hover:opacity-100 motion-reduce:transition-none}
+  .nav-item.active{@apply bg-slate opacity-100}
+  .nav-item svg{@apply absolute left-[10px] top-[10px]}
+  .nav-item svg.ov{@apply top-[13px]}
+  .nav-item span{@apply absolute left-[66px] top-[calc(50%-10px)] whitespace-nowrap leading-normal transition-opacity}
+  .group-label{@apply absolute left-[27px] font-display text-sm font-semibold leading-5 opacity-60 transition-opacity}
+  .tab{@apply h-11 whitespace-nowrap border-0 bg-transparent px-2 text-sm font-medium opacity-80}
+  .tab[aria-selected=true]{@apply border-b-[3px] border-brand font-bold text-brand opacity-100}
+  .field{@apply h-12 w-full appearance-none rounded-lg border border-line bg-snow py-3 pl-3 pr-10 text-base leading-[1.4] text-ink}
+  .btn{@apply h-12 rounded-lg border border-transparent px-6 py-3 text-base font-bold leading-6 text-ink}
+}
+/* Rules Tailwind utilities can't express cleanly */
+.collapsed .logo,.collapsed .group-label{opacity:0;pointer-events:none}
+.collapsed .nav-item{width:66px}
+.collapsed .nav-item span{opacity:0;pointer-events:none}
+.collapsed .nav-item svg.ov{left:13px}
+.collapsed .toggle{left:38px}
+.map{--g:64px;background:#0e2431 linear-gradient(rgba(254,254,255,.07) 1px,transparent 1px) 0 0/var(--g) var(--g),linear-gradient(90deg,rgba(254,254,255,.07) 1px,transparent 1px) 0 0/var(--g) var(--g)}
+.reports-card{container-type:inline-size}
+@container (max-width:400px){.tab:last-child span{display:block;width:66px;white-space:normal;text-align:left}}
+</style>
+</head>
+<body class="overflow-hidden bg-navy font-body text-ink">
+<svg width="0" height="0" class="absolute" aria-hidden="true"><defs><symbol id="i-bell" viewBox="0 0 25 25"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.948 5.4375C10.3012 5.6125 9.697 5.88646 9.27616 6.26562C8.12721 7.30208 7.6595 8.70625 7.6595 11.2375C7.6595 13.0417 6.63241 14.75 5.89283 15.8563C5.73241 16.0979 5.68241 16.3281 5.69179 16.4667C5.69596 16.5292 5.71054 16.5583 5.71679 16.5688C5.72096 16.576 5.73346 16.5958 5.78346 16.6229C6.50429 17.0083 7.59179 17.2896 8.84908 17.4677C10.0593 17.6301 11.2791 17.7105 12.5001 17.7083C12.7764 17.7083 13.0413 17.8181 13.2367 18.0134C13.432 18.2088 13.5418 18.4737 13.5418 18.75C13.5418 19.0263 13.432 19.2912 13.2367 19.4866C13.0413 19.6819 12.7764 19.7917 12.5001 19.7917C11.3251 19.7917 9.91262 19.724 8.55637 19.5313C7.22096 19.3406 5.84491 19.0177 4.80116 18.4604C4.03346 18.05 3.66262 17.3354 3.61366 16.6073C3.56575 15.9208 3.79804 15.2427 4.16054 14.7C4.90741 13.5813 5.57616 12.3469 5.57616 11.2375C5.57616 8.46563 6.08866 6.33438 7.88137 4.71875C8.63658 4.0375 9.58554 3.64896 10.4012 3.42708C11.0851 3.23742 11.7905 3.1359 12.5001 3.125C12.7764 3.125 13.0413 3.23475 13.2367 3.4301C13.432 3.62545 13.5418 3.8904 13.5418 4.16667C13.5418 4.44293 13.432 4.70789 13.2367 4.90324C13.0413 5.09859 12.7764 5.20833 12.5001 5.20833C12.1814 5.20833 11.5876 5.2625 10.948 5.4375Z" fill="#284B63"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.0527 5.4375C14.6996 5.6125 15.3038 5.88646 15.7246 6.26562C16.8736 7.30208 17.3413 8.70625 17.3413 11.2375C17.3413 13.0417 18.3684 14.75 19.1079 15.8563C19.2684 16.0979 19.3184 16.3281 19.309 16.4667C19.3095 16.5023 19.3009 16.5374 19.284 16.5688C19.2798 16.576 19.2673 16.5958 19.2173 16.6229C18.4965 17.0083 17.409 17.2896 16.1517 17.4677C14.9415 17.6301 13.7217 17.7105 12.5007 17.7083C12.2244 17.7083 11.9594 17.8181 11.7641 18.0134C11.5687 18.2088 11.459 18.4737 11.459 18.75C11.459 19.0263 11.5687 19.2912 11.7641 19.4866C11.9594 19.6819 12.2244 19.7917 12.5007 19.7917C13.6757 19.7917 15.0871 19.724 16.4444 19.5313C17.7798 19.3406 19.1559 19.0177 20.1996 18.4604C20.9673 18.05 21.3382 17.3354 21.3871 16.6073C21.435 15.9208 21.2027 15.2427 20.8402 14.7C20.0934 13.5813 19.4246 12.3469 19.4246 11.2375C19.4246 8.46563 18.9121 6.33438 17.1194 4.71875C16.3642 4.0375 15.4152 3.64896 14.5996 3.42708C13.9157 3.23742 13.2103 3.1359 12.5007 3.125C12.2244 3.125 11.9594 3.23475 11.7641 3.4301C11.5687 3.62545 11.459 3.8904 11.459 4.16667C11.459 4.44293 11.5687 4.70789 11.7641 4.90324C11.9594 5.09859 12.2244 5.20833 12.5007 5.20833C12.8194 5.20833 13.4132 5.2625 14.0527 5.4375Z" fill="#284B63"/><path d="M15.2572 3.8335C15.2572 4.55745 13.803 3.87725 12.653 3.87725C11.503 3.87725 10.0488 4.55745 10.0488 3.83245C10.0488 3.1085 11.0905 2.0835 12.653 2.0835C14.2155 2.0835 15.2572 3.1085 15.2572 3.8335Z" fill="#284B63"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10.4173 18.75C10.4173 19.3025 10.6368 19.8324 11.0275 20.2231C11.4182 20.6138 11.9481 20.8333 12.5007 20.8333C13.0532 20.8333 13.5831 20.6138 13.9738 20.2231C14.3645 19.8324 14.584 19.3025 14.584 18.75H16.6673C16.6673 19.8551 16.2283 20.9149 15.4469 21.6963C14.6655 22.4777 13.6057 22.9167 12.5007 22.9167C11.3956 22.9167 10.3358 22.4777 9.55437 21.6963C8.77297 20.9149 8.33398 19.8551 8.33398 18.75H10.4173Z" fill="#284B63"/></symbol>
+<symbol id="i-caret-down" viewBox="0 0 16 15"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.6774 4.34608C14.884 4.54995 15 4.82632 15 5.11446C15 5.40261 14.884 5.67897 14.6774 5.88285L8.79382 11.682C8.58697 11.8856 8.30658 12 8.01424 12C7.7219 12 7.44152 11.8856 7.23467 11.682L1.35111 5.88285C1.24273 5.78331 1.1558 5.66326 1.0955 5.52988C1.03521 5.3965 1.00279 5.25252 1.00017 5.10652C0.997558 4.96052 1.02481 4.8155 1.08029 4.68011C1.13577 4.54472 1.21836 4.42173 1.32311 4.31848C1.42786 4.21522 1.55265 4.13383 1.69001 4.07914C1.82737 4.02445 1.97451 3.99759 2.12263 4.00017C2.27075 4.00275 2.41683 4.0347 2.55215 4.09413C2.68747 4.15356 2.80926 4.23925 2.91026 4.34608L8.01424 9.37684L13.1182 4.34608C13.3251 4.14245 13.6055 4.02808 13.8978 4.02808C14.1901 4.02808 14.4705 4.14245 14.6774 4.34608Z" fill="#153243"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 18 18"><path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="#284B63" stroke-width="1.7" stroke-linecap="round"/></symbol>
+<symbol id="i-dashboard" viewBox="0 0 40 40"><path d="M33.3333 18.3333H23.3333C22.4167 18.3333 21.6667 19.0833 21.6667 20V33.3333C21.6667 34.25 22.4167 35 23.3333 35H33.3333C34.25 35 35 34.25 35 33.3333V20C35 19.0833 34.25 18.3333 33.3333 18.3333ZM31.6667 31.6667H25V21.6667H31.6667V31.6667ZM16.6667 25H6.66667C5.75 25 5 25.75 5 26.6667V33.3333C5 34.25 5.75 35 6.66667 35H16.6667C17.5833 35 18.3333 34.25 18.3333 33.3333V26.6667C18.3333 25.75 17.5833 25 16.6667 25ZM15 31.6667H8.33333V28.3333H15V31.6667ZM33.3333 5H23.3333C22.4167 5 21.6667 5.75 21.6667 6.66667V13.3333C21.6667 14.25 22.4167 15 23.3333 15H33.3333C34.25 15 35 14.25 35 13.3333V6.66667C35 5.75 34.25 5 33.3333 5ZM31.6667 11.6667H25V8.33333H31.6667V11.6667ZM16.6667 5H6.66667C5.75 5 5 5.75 5 6.66667V20C5 20.9167 5.75 21.6667 6.66667 21.6667H16.6667C17.5833 21.6667 18.3333 20.9167 18.3333 20V6.66667C18.3333 5.75 17.5833 5 16.6667 5ZM15 18.3333H8.33333V8.33333H15V18.3333Z" fill="#F3F6F8"/></symbol>
+<symbol id="i-heatmap" viewBox="0 0 46 46"><path d="M22.7643 6.94857C23.4832 6.57719 24.2424 6.28959 25.0269 6.09143C25.0955 7.63429 25.5754 9.16 26.2268 10.6171C27.1524 12.6771 28.5123 14.78 29.8379 16.8171L29.9922 17.0514C31.292 19.0429 32.5634 20.9886 33.529 22.9429C34.5289 24.9686 35.1431 26.8829 35.1431 28.7143C35.1431 32.0086 34.1575 34.8486 32.3091 36.8514C30.4807 38.8371 27.6695 40.1429 23.7156 40.1429C19.7245 40.1429 16.9505 38.9886 15.0135 37.2143C13.0509 35.42 11.8081 32.8629 11.1339 29.8314C10.4997 26.98 11.0596 24.4229 11.8053 22.5457C11.9271 22.241 12.0509 21.9552 12.1767 21.6886L12.5338 22.4057C12.7918 22.9235 13.1494 23.3854 13.5862 23.7648C14.0229 24.1442 14.5302 24.4338 15.0789 24.6169C15.6277 24.8 16.2072 24.8731 16.7842 24.8319C17.3613 24.7908 17.9245 24.6363 18.4418 24.3771C20.8587 23.1686 21.5272 20.2057 20.5045 17.9886C19.4417 15.6829 18.6132 12.8171 19.3531 10.5943C19.9102 8.92571 21.233 7.73714 22.7614 6.94857M11.1653 17.8257L11.1596 17.8371L11.1453 17.8543L11.0996 17.9114L10.9539 18.1143C10.8282 18.2876 10.6663 18.5314 10.4682 18.8457C9.95291 19.688 9.51131 20.5732 9.14836 21.4914C8.26272 23.72 7.5485 26.8771 8.34557 30.4543C9.10264 33.8543 10.5597 37.0086 13.0851 39.3229C15.6335 41.6543 19.1332 43 23.7156 43C28.338 43 31.9548 41.4486 34.4089 38.7914C36.8458 36.1514 38 32.5629 38 28.7143C38 26.26 37.1858 23.8886 36.0887 21.6743C35.046 19.5657 33.689 17.4914 32.4177 15.54L32.232 15.2543C30.8807 13.1829 29.6493 11.2686 28.8323 9.44571C28.0152 7.62286 27.6981 6.07429 27.9695 4.70857C28.0109 4.5014 28.0058 4.28762 27.9547 4.08263C27.9035 3.87765 27.8075 3.68656 27.6736 3.52314C27.5398 3.35972 27.3713 3.22804 27.1804 3.13758C26.9895 3.04711 26.7809 3.00013 26.5696 3C25.364 3 23.3556 3.42286 21.4501 4.40857C19.5274 5.40571 17.5162 7.07429 16.6448 9.69143C15.5306 13.0343 16.8134 16.8057 17.9104 19.1857C18.3989 20.2429 17.9733 21.4143 17.1648 21.82C16.9833 21.9112 16.7855 21.9657 16.5829 21.9803C16.3803 21.9949 16.1768 21.9694 15.9841 21.9052C15.7914 21.8409 15.6133 21.7392 15.4599 21.606C15.3066 21.4727 15.1811 21.3105 15.0907 21.1286L13.5622 18.0743C13.4548 17.8594 13.2949 17.6751 13.0973 17.5384C12.8998 17.4017 12.6709 17.3171 12.432 17.2923C12.193 17.2675 11.9517 17.3034 11.7303 17.3966C11.5089 17.4899 11.3146 17.6375 11.1653 17.8257Z" fill="#FEFEFF"/></symbol>
+<symbol id="i-key-critical" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#B42318"/></symbol>
+<symbol id="i-key-high" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#F18F01"/></symbol>
+<symbol id="i-key-minor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#176B4B"/></symbol>
+<symbol id="i-key-moderate" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#805000"/></symbol>
+<symbol id="i-maintenance" viewBox="0 0 46 46"><path d="M8.89458 32.5991L20.16 21.3335C18.8151 17.9028 19.0781 13.4013 21.849 10.6287C24.6199 7.85611 29.7364 7.24901 32.5535 8.93965L27.7095 13.7837L27.2586 18.7409L32.2157 18.2916L37.0597 13.4459C38.7519 16.2631 38.1432 21.3781 35.3707 24.1491C32.5981 26.9217 28.0967 27.1846 24.6661 25.8397L13.4007 37.1054C12.7997 37.6859 11.9947 38.0071 11.1591 37.9999C10.3236 37.9926 9.52426 37.6575 8.9334 37.0666C8.34254 36.4757 8.00738 35.6764 8.00012 34.8408C7.99286 34.0052 8.31407 33.2002 8.89458 32.5991Z" stroke="#FEFEFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12H19" stroke="#153243" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="#153243" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-power-stations" viewBox="0 0 46 46"><path d="M16.7715 13.4159V5.75C16.7715 5.36875 16.9229 5.00312 17.1925 4.73353C17.4621 4.46395 17.8277 4.3125 18.209 4.3125C18.5902 4.3125 18.9559 4.46395 19.2255 4.73353C19.495 5.00312 19.6465 5.36875 19.6465 5.75V13.4159C19.6465 13.7971 19.495 14.1628 19.2255 14.4324C18.9559 14.702 18.5902 14.8534 18.209 14.8534C17.8277 14.8534 17.4621 14.702 17.1925 14.4324C16.9229 14.1628 16.7715 13.7971 16.7715 13.4159ZM26.3556 13.4159V5.75C26.3556 5.36875 26.507 5.00312 26.7766 4.73353C27.0462 4.46395 27.4118 4.3125 27.7931 4.3125C28.1743 4.3125 28.54 4.46395 28.8096 4.73353C29.0791 5.00312 29.2306 5.36875 29.2306 5.75V13.4159C29.2306 13.7971 29.0791 14.1628 28.8096 14.4324C28.54 14.702 28.1743 14.8534 27.7931 14.8534C27.4118 14.8534 27.0462 14.702 26.7766 14.4324C26.507 14.1628 26.3556 13.7971 26.3556 13.4159Z" fill="#FEFEFF"/><path d="M31.1464 14.8555H14.8555V22.9998C14.8914 25.1364 15.7653 27.1733 17.289 28.6716C18.8127 30.1699 20.864 31.0095 23.0009 31.0095C25.1378 31.0095 27.1892 30.1699 28.7128 28.6716C30.2365 27.1733 31.1105 25.1364 31.1464 22.9998V14.8555ZM34.0214 22.9998C34.0214 25.9226 32.8603 28.7257 30.7936 30.7924C28.7268 32.8591 25.9237 34.0202 23.0009 34.0202C20.0781 34.0202 17.275 32.8591 15.2083 30.7924C13.1415 28.7257 11.9805 25.9226 11.9805 22.9998V13.418C11.9805 12.6222 12.6245 11.9805 13.418 11.9805H32.5839C33.3774 11.9805 34.0214 12.6245 34.0214 13.418V22.9998Z" fill="#FEFEFF"/><path d="M21.5648 36.4184V32.582C21.5648 32.2008 21.7163 31.8351 21.9858 31.5656C22.2554 31.296 22.6211 31.1445 23.0023 31.1445C23.3835 31.1445 23.7492 31.296 24.0188 31.5656C24.2883 31.8351 24.4398 32.2008 24.4398 32.582V36.4184C24.4398 37.7409 25.5116 38.8104 26.8364 38.8104H34.5C34.8812 38.8104 35.2469 38.9619 35.5165 39.2315C35.7861 39.501 35.9375 39.8667 35.9375 40.2479C35.9375 40.6292 35.7861 40.9948 35.5165 41.2644C35.2469 41.534 34.8812 41.6854 34.5 41.6854H26.8341C26.142 41.686 25.4566 41.5502 24.8171 41.2858C24.1775 41.0214 23.5964 40.6335 23.1068 40.1444C22.6172 39.6552 22.2288 39.0744 21.9639 38.4351C21.6989 37.7958 21.5625 37.1105 21.5625 36.4184" fill="#FEFEFF"/></symbol>
+<symbol id="i-risk-areas" viewBox="0 0 46 46"><path d="M23 15.9037V25.4566M23 31.0946V30.2261M38 30.0993V16.8989C37.9992 16.3211 37.845 15.7536 37.5528 15.2524C37.2606 14.7513 36.8405 14.3339 36.3341 14.0417L24.6659 7.4415C24.1599 7.15232 23.5851 7 23 7C22.4149 7 21.8401 7.15232 21.3341 7.4415L9.66589 14.0417C9.15826 14.3326 8.73719 14.7497 8.44482 15.2511C8.15246 15.7525 7.99907 16.3208 8 16.8989V30.1028C8.00114 30.6803 8.15543 31.2475 8.4476 31.7483C8.73978 32.2491 9.15971 32.6662 9.66589 32.9583L21.3341 39.5585C21.8401 39.8477 22.4149 40 23 40C23.5851 40 24.1599 39.8477 24.6659 39.5585L36.3341 32.9583C36.842 32.6672 37.2632 32.2499 37.5556 31.7482C37.848 31.2464 38.0012 30.6778 38 30.0993Z" stroke="#FEFEFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-sidebar-toggle" viewBox="0 0 31 31"><g opacity="0.6"><path d="M12.2721 5.16602V25.8327M8.88151 5.16602H22.1211C23.6198 5.16602 25.0572 5.76139 26.117 6.82117C27.1768 7.88094 27.7721 9.31831 27.7721 10.8171V20.1816C27.7721 21.6804 27.1768 23.1178 26.117 24.1775C25.0572 25.2373 23.6198 25.8327 22.1211 25.8327H8.88151C7.38276 25.8327 5.9454 25.2373 4.88562 24.1775C3.82584 23.1178 3.23047 21.6804 3.23047 20.1816V10.8171C3.23047 9.31831 3.82584 7.88094 4.88562 6.82117C5.9454 5.76139 7.38276 5.16602 8.88151 5.16602Z" stroke="#FEFEFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+</defs></svg>
+
+<aside class="fixed inset-y-0 left-0 w-[var(--sb)] overflow-hidden text-snow transition-[width] duration-300 motion-reduce:transition-none max-[700px]:hidden" aria-label="Primary">
+  <!-- Placeholder logo: replace with the PowerGuide mark -->
+  <div class="logo absolute left-[26px] top-[97px] flex h-[26px] items-center gap-2 whitespace-nowrap font-display text-[22px] font-bold leading-none transition-opacity"><span class="h-[26px] w-[26px] rounded-md border-2 border-dashed border-snow/50"></span>PowerGuide</div>
+  <button id="toggle" type="button" class="toggle absolute left-[calc(var(--sb)-31px)] top-[98px] h-[31px] w-[31px] border-0 bg-transparent p-0 transition-all duration-300 motion-reduce:transition-none" aria-label="Collapse sidebar" aria-expanded="true"><svg width="31" height="31"><use href="#i-sidebar-toggle"/></svg></button>
+  <p class="group-label top-[175px]">Monitor</p>
+  <nav class="absolute left-[21px] top-[203px]">
+    <a class="nav-item active" href="#" aria-current="page" title="Overview"><svg class="ov" width="40" height="40"><use href="#i-dashboard"/></svg><span>Overview</span></a>
+  </nav>
+  <p class="group-label top-[321px]">Explore</p>
+  <nav class="absolute left-[21px] top-[347px] flex flex-col gap-[37px]">
+    <a class="nav-item" href="#" title="Risk Areas"><svg width="46" height="46"><use href="#i-risk-areas"/></svg><span>Risk Areas</span></a>
+    <a class="nav-item" href="#" title="Heatmap"><svg width="46" height="46"><use href="#i-heatmap"/></svg><span>Heatmap</span></a>
+    <a class="nav-item" href="#" title="Maintenance"><svg width="46" height="46"><use href="#i-maintenance"/></svg><span>Maintenance</span></a>
+    <a class="nav-item" href="#" title="Power Stations"><svg width="46" height="46"><use href="#i-power-stations"/></svg><span>Power Stations</span></a>
+  </nav>
+</aside>
+
+<main class="ml-[var(--main-left)] h-dvh py-5 pr-5 transition-[margin] duration-300 motion-reduce:transition-none max-[700px]:ml-0 max-[700px]:p-3">
+  <div class="flex h-full flex-col overflow-hidden rounded-[40px] bg-snow max-[700px]:rounded-3xl">
+    <header class="flex h-[72px] flex-none justify-between px-10 max-[700px]:px-5">
+      <h1 class="mt-6 font-display text-[32px] font-bold leading-10 text-navy">Overview</h1>
+      <div class="flex items-start gap-6 pt-[18px] max-[700px]:gap-3">
+        <button type="button" class="mt-[5px] h-[25px] w-[25px] border-0 bg-transparent p-0" aria-label="Notifications"><svg width="25" height="25"><use href="#i-bell"/></svg></button>
+        <button type="button" class="flex items-center gap-3 border-0 bg-transparent p-0 text-left" aria-label="Account menu">
+          <!-- Placeholder avatar -->
+          <span class="h-10 w-10 flex-none overflow-hidden rounded-full bg-line" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="15" r="7" fill="#526574"/><path d="M6 40c1-9 7-14 14-14s13 5 14 14z" fill="#526574"/></svg></span>
+          <span class="mr-3 flex w-[173px] flex-col font-display text-sm font-medium leading-5 text-navy max-[700px]:hidden"><strong class="text-xl font-semibold leading-5">Christian Blanco</strong>Resident</span>
+          <svg width="16" height="15" class="max-[700px]:hidden"><use href="#i-caret-down"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex min-h-0 flex-1 flex-col overflow-auto px-10 pb-[33px] pt-[45px] max-[700px]:px-5">
+      <section>
+        <h2 class="font-display text-[40px] font-bold leading-[48px] text-navy max-[700px]:text-[30px] max-[700px]:leading-[38px]">Good day, Christian</h2>
+        <p class="mt-2 text-base leading-[1.4] text-navy">Here’s what’s happening around you right now.</p>
+      </section>
+
+      <div class="mt-12 grid min-h-[640px] flex-1 grid-cols-[7fr_5fr] gap-5 max-[1000px]:min-h-0 max-[1000px]:grid-cols-1">
+        <section class="flex min-h-0 flex-col rounded-lg bg-navy px-4 pb-4 pt-[22px] text-snow" aria-labelledby="risks-title">
+          <div class="px-3"><h3 id="risks-title" class="font-display text-xl font-semibold leading-7">Nearby Risks</h3><p class="mt-2 text-base leading-[1.4] opacity-80">View risks around you.</p></div>
+          <div id="map" class="map relative mt-4 flex-1 overflow-hidden rounded-lg max-[1000px]:min-h-[420px]" role="img" aria-label="Map placeholder for Dagupan City">
+            <span class="absolute inset-0 grid place-items-center text-sm font-medium opacity-50">Map placeholder</span>
+            <span class="absolute left-[28%] top-[45%] h-5 w-5 rounded-full border-[3px] border-snow/85 bg-brand" aria-hidden="true"></span>
+            <div class="absolute bottom-[13px] left-3 h-[140px] w-[185px] rounded-lg bg-snow p-3 text-ink">
+              <h4 class="text-sm font-semibold leading-5 text-navy">SEVERITY</h4>
+              <ul class="mt-[7px] grid list-none gap-2 p-0 text-xs font-medium leading-4">
+                <li class="flex h-4 items-center gap-2"><svg width="8" height="8"><use href="#i-key-critical"/></svg>Critical</li>
+                <li class="flex h-4 items-center gap-2"><svg width="8" height="8"><use href="#i-key-high"/></svg>High</li>
+                <li class="flex h-4 items-center gap-2"><svg width="8" height="8"><use href="#i-key-moderate"/></svg>Moderate</li>
+                <li class="flex h-4 items-center gap-2"><svg width="8" height="8"><use href="#i-key-minor"/></svg>Minor</li>
+              </ul>
+            </div>
+            <div class="absolute bottom-3 right-3 h-20 w-10 overflow-hidden rounded-lg bg-snow">
+              <button id="zoom-in" type="button" class="grid h-10 w-10 place-items-center border-0 bg-transparent p-0 hover:bg-slate/10" aria-label="Zoom in"><svg width="24" height="24"><use href="#i-plus"/></svg></button>
+              <button id="zoom-out" type="button" class="grid h-10 w-10 place-items-center border-0 bg-transparent p-0 hover:bg-slate/10" aria-label="Zoom out"><svg width="24" height="24"><use href="#i-minus"/></svg></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="reports-card flex min-h-0 flex-col rounded-lg bg-navy px-7 pb-7 pt-[22px] text-snow max-[1000px]:min-h-[640px]" aria-labelledby="reports-title">
+          <div><h3 id="reports-title" class="font-display text-xl font-semibold leading-7">Latest Reports</h3><p class="mt-2 text-base leading-[1.4] opacity-80">Outages, reports, and hazards from across Dagupan</p></div>
+          <div class="mt-3.5 flex justify-between border-b border-line" role="tablist" aria-label="Report type">
+            <button class="tab" role="tab" aria-selected="true" data-tab="all" type="button"><span>All</span></button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="outage" type="button"><span>Outage Reports</span></button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="flood" type="button"><span>Flood Reports</span></button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="electrical" type="button"><span>Electrical Hazards</span></button>
+          </div>
+          <div class="mt-4">
+            <label for="barangay" class="mb-2 block text-sm font-bold opacity-80">Barangay</label>
+            <div class="relative"><select id="barangay" class="field"></select><svg width="18" height="18" class="pointer-events-none absolute right-3 top-[15px]"><use href="#i-chevron-down"/></svg></div>
+          </div>
+          <div id="list" class="mt-8 grid min-h-0 flex-1 content-start gap-3 overflow-auto pb-4" aria-live="polite"></div>
+          <button id="create" type="button" class="btn w-full flex-none bg-brand hover:brightness-105">Create a Report</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<dialog id="dlg" class="m-auto w-[min(420px,calc(100vw-32px))] rounded-lg border-0 bg-snow p-7 text-ink backdrop:bg-navy/60" aria-labelledby="dlg-title">
+  <form id="form" class="grid gap-4">
+    <h3 id="dlg-title" class="font-display text-xl font-semibold leading-7 text-navy">Create a report</h3>
+    <label class="grid gap-2 text-sm font-bold text-muted">Report type<span class="relative"><select id="f-type" class="field"><option value="outage">Outage</option><option value="flood">Flood</option><option value="electrical">Electrical hazard</option></select><svg width="18" height="18" class="pointer-events-none absolute right-3 top-[15px]"><use href="#i-chevron-down"/></svg></span></label>
+    <label class="grid gap-2 text-sm font-bold text-muted">Barangay<span class="relative"><select id="f-brgy" class="field"></select><svg width="18" height="18" class="pointer-events-none absolute right-3 top-[15px]"><use href="#i-chevron-down"/></svg></span></label>
+    <label class="grid gap-2 text-sm font-bold text-muted">Affected homes<input id="f-homes" class="field pr-3" type="number" min="1" value="1" required></label>
+    <div class="mt-2 flex justify-end gap-3">
+      <button class="btn border-line bg-snow" type="button" id="cancel">Cancel</button>
+      <button class="btn bg-brand hover:brightness-105" type="submit">Create report</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+const BARANGAYS = ['Bonuan Boquig','Calmay','Carael','Lucao','Mangin','Pantal','Poblacion Oeste'];
+const TYPE = {
+  outage:{label:'Community outage report',title:'Power outage'},
+  flood:{label:'Community flood report',title:'Street flooding'},
+  electrical:{label:'Electrical hazard report',title:'Electrical hazard'}
+};
+const reports = [
+  {type:'outage',status:'Ongoing',title:'Power out along Carael Road',brgy:'Carael',homes:12},
+  {type:'flood',status:'Investigating',title:'Knee-deep water near Pantal market',brgy:'Pantal',homes:30},
+  {type:'electrical',status:'Investigating',title:'Fallen line beside Lucao school',brgy:'Lucao',homes:4},
+  {type:'outage',status:'Ongoing',title:'Transformer failure in Bonuan Boquig',brgy:'Bonuan Boquig',homes:45},
+  {type:'flood',status:'Ongoing',title:'Creek overflow on Mangin road',brgy:'Mangin',homes:18}
+];
+const state = {tab:'all', brgy:'all'};
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const setTabs = t => document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', String(x.dataset.tab === t)));
+
+const opts = BARANGAYS.map(b => `<option>${b}</option>`).join('');
+$('#barangay').innerHTML = '<option value="all">All barangays</option>' + opts;
+$('#f-brgy').innerHTML = opts;
+
+function render(){
+  const rows = reports.filter(r => (state.tab === 'all' || r.type === state.tab) && (state.brgy === 'all' || r.brgy === state.brgy));
+  $('#list').innerHTML = rows.length ? rows.map(r => `
+    <article class="rounded-lg bg-snow px-5 pb-[26px] pt-4 text-ink">
+      <span class="inline-flex rounded-full bg-warnbg px-2.5 py-1.5 text-xs font-bold leading-normal text-warn">${r.status}</span>
+      <h4 class="mt-4 font-display text-xl font-semibold leading-7 text-navy">${esc(r.title)}</h4>
+      <p class="mt-2 text-base font-medium leading-6">${TYPE[r.type].label}</p>
+      <p class="mt-3 text-sm font-semibold leading-5 text-muted">${r.brgy}, Dagupan</p>
+      <p class="mt-2.5 text-xs font-medium leading-4 text-muted">Affected homes: ${r.homes} ${r.homes === 1 ? 'home' : 'homes'}</p>
+    </article>`).join('') : '<p class="py-6 text-base leading-[1.4] opacity-80">No reports match these filters. Try another barangay or report type.</p>';
+}
+
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => { state.tab = t.dataset.tab; setTabs(state.tab); render(); }));
+$('#barangay').addEventListener('change', e => { state.brgy = e.target.value; render(); });
+
+const toggle = $('#toggle');
+toggle.addEventListener('click', () => {
+  const collapsed = document.body.classList.toggle('collapsed');
+  toggle.setAttribute('aria-expanded', String(!collapsed));
+  toggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+});
+document.querySelectorAll('.nav-item').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+
+let zoom = 1;
+const setZoom = z => { zoom = Math.min(3, Math.max(.5, z)); $('#map').style.setProperty('--g', 64 * zoom + 'px'); };
+$('#zoom-in').addEventListener('click', () => setZoom(zoom * 1.25));
+$('#zoom-out').addEventListener('click', () => setZoom(zoom / 1.25));
+
+const dlg = $('#dlg');
+$('#create').addEventListener('click', () => dlg.showModal());
+$('#cancel').addEventListener('click', () => dlg.close());
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const type = $('#f-type').value, brgy = $('#f-brgy').value;
+  reports.unshift({type, status:'Ongoing', title:`${TYPE[type].title} in ${brgy}`, brgy, homes:Math.max(1, +$('#f-homes').value || 1)});
+  state.tab = 'all'; state.brgy = 'all';
+  $('#barangay').value = 'all'; setTabs('all');
+  render(); dlg.close(); $('#list').scrollTop = 0;
+});
+render();
+
+</script>
+</body>
+</html>
